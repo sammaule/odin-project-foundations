@@ -1,0 +1,1 @@
+Exercises from the Foundations Course of the Odin Project
