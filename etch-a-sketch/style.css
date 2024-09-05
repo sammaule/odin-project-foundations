@@ -1,0 +1,11 @@
+.grid-item {
+    /* This ensures borders and padding are included in the size */
+    box-sizing: border-box;
+}
+
+#grid-container {
+    display: flex;
+    flex-wrap: wrap;
+    /* TODO: adjust this to be dynamic */
+    width: 960px; 
+}   
