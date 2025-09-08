@@ -1,0 +1,259 @@
+/* Import custom font */
+@font-face {
+    font-family: 'Norse-Bold';
+    src: url('fonts/Norse-Bold.otf') format('opentype');
+}
+
+/* CSS Custom Properties */
+:root {
+    --primary-green: #596D48;
+    --primary-green-dark: #4a5a3a;
+    --focus-blue: #4A90E2;
+    --error-red: #ff6b6b;
+    --text-dark: #333;
+    --text-medium: #666;
+    --border-light: #e0e0e0;
+    --bg-light: #f9f9f9;
+    --white: #ffffff;
+    --shadow-light: rgba(0, 0, 0, 0.1);
+    --shadow-focus-blue: rgba(74, 144, 226, 0.1);
+    --shadow-focus-red: rgba(255, 107, 107, 0.1);
+}
+
+/* Reset and base styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+    height: 100vh;
+    overflow: hidden;
+}
+
+/* Accessibility improvements */
+*:focus-visible {
+    outline: 2px solid var(--focus-blue);
+    outline-offset: 2px;
+}
+
+/* Main container */
+.container {
+    display: flex;
+    height: 100vh;
+}
+
+/* Left panel with background image and logo */
+.left-panel {
+    flex: 0 0 40%;
+    background-image: url('assets/kiril-krsteski-sjvjzoCizjQ-unsplash.jpg');
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.logo-banner {
+    background-color: rgba(0, 0, 0, 0.4);
+    padding: 20px 40px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    width: 100%;
+    justify-content: center;
+    position: absolute;
+    top: 30%;
+}
+
+.logo {
+    height: 80px;
+    width: auto;
+}
+
+.brand-name {
+    font-family: 'Norse-Bold', serif;
+    font-size: 4rem;
+    color: white;
+    font-weight: bold;
+}
+
+/* Right panel with form */
+.right-panel {
+    flex: 1;
+    background-color: var(--bg-light);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+    overflow-y: auto;
+}
+
+.content {
+    max-width: 600px;
+    width: 100%;
+}
+
+/* Intro text */
+.intro-text {
+    margin-bottom: 40px;
+}
+
+.intro-text p {
+    font-size: 1.2rem;
+    font-weight: 600;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    color: var(--text-dark);
+}
+
+/* Form styling */
+.signup-form {
+    background: var(--white);
+    border-radius: 8px;
+    box-shadow: 0 4px 6px var(--shadow-light);
+    overflow: hidden;
+}
+
+.form-section {
+    padding: 40px 40px 20px;
+    background: var(--white);
+}
+
+.form-section h2 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--text-dark);
+    margin-bottom: 30px;
+}
+
+.form-row {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.form-group {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--text-medium);
+    letter-spacing: 0.5px;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+}
+
+.form-group input {
+    padding: 12px 15px;
+    border: 2px solid var(--border-light);
+    border-radius: 5px;
+    font-size: 1rem;
+    transition: border-color 0.2s ease;
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: var(--focus-blue);
+    box-shadow: 0 0 0 3px var(--shadow-focus-blue);
+}
+
+.form-group input.touched:invalid {
+    border-color: var(--error-red);
+}
+
+.form-group input.touched:invalid:focus {
+    border-color: var(--error-red);
+    box-shadow: 0 0 0 3px var(--shadow-focus-red);
+}
+
+/* Form actions */
+.form-actions {
+    padding: 20px 40px 40px;
+    background: var(--bg-light);
+}
+
+.create-account-btn {
+    background-color: var(--primary-green);
+    color: var(--white);
+    border: none;
+    padding: 15px 40px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    margin-bottom: 20px;
+}
+
+.create-account-btn:hover {
+    background-color: var(--primary-green-dark);
+}
+
+.create-account-btn:focus-visible {
+    outline: 2px solid var(--focus-blue);
+    outline-offset: 2px;
+}
+
+.login-link {
+    font-size: 1rem;
+    color: var(--text-medium);
+}
+
+.login-link a {
+    color: var(--primary-green);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.login-link a:hover {
+    text-decoration: underline;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+    }
+    
+    .left-panel {
+        flex: 0 0 30%;
+    }
+    
+    .logo-banner {
+        top: 20%;
+        padding: 15px 20px;
+    }
+    
+    .brand-name {
+        font-size: 2.5rem;
+    }
+    
+    .logo {
+        height: 50px;
+    }
+    
+    .right-panel {
+        padding: 20px;
+    }
+    
+    .form-row {
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .form-section {
+        padding: 30px 20px 15px;
+    }
+    
+    .form-actions {
+        padding: 15px 20px 30px;
+    }
+}

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up Form</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Left side with background image and logo -->
+        <div class="left-panel">
+            <div class="logo-banner">
+                <img src="assets/odin-lined.png" alt="Odin Logo" class="logo">
+                <span class="brand-name">ODIN</span>
+            </div>
+        </div>
+        
+        <!-- Right side with form content -->
+        <div class="right-panel">
+            <div class="content">
+                <div class="intro-text">
+                    <p>This is not a real online service! You know you need something like this in your life to help you realize your deepest dreams. Sign up <em>now</em> to get started.</p>
+                    <p>You <em>know</em> you want to</p>
+                </div>
+                
+                <form class="signup-form">
+                    <div class="form-section">
+                        <h2>Let's do this!</h2>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="first-name">FIRST NAME</label>
+                                <input type="text" id="first-name" name="first-name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="last-name">LAST NAME</label>
+                                <input type="text" id="last-name" name="last-name" required>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="email">EMAIL</label>
+                                <input type="email" id="email" name="email" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="phone">PHONE NUMBER</label>
+                                <input type="tel" id="phone" name="phone" required>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="password">PASSWORD</label>
+                                <input type="password" id="password" name="password" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="confirm-password">CONFIRM PASSWORD</label>
+                                <input type="password" id="confirm-password" name="confirm-password" required>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-actions">
+                        <button type="submit" class="create-account-btn">Create Account</button>
+                        <p class="login-link">Already have an account? <a href="#">Log In</a></p>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        // Enhanced form validation with improved UX
+        document.addEventListener('DOMContentLoaded', function() {
+            const inputs = document.querySelectorAll('.form-group input');
+            
+            function initializeFormValidation() {
+                inputs.forEach(input => {
+                    // Mark field as touched when user leaves it (blur event)
+                    input.addEventListener('blur', function() {
+                        this.classList.add('touched');
+                    });
+                    
+                    // Remove touched class when user starts fresh (clears the field completely)
+                    input.addEventListener('input', function() {
+                        if (this.value === '') {
+                            this.classList.remove('touched');
+                        }
+                    });
+                });
+            }
+            
+            // Initialize validation
+            initializeFormValidation();
+        });
+    </script>
+</body>
+</html>
